@@ -51,6 +51,8 @@ spec:
       params:
         - name: DOCKERFILE
           value: $(params.DOCKERFILE)
+        - name: IMAGE
+          value: $(params.IMAGE_NAME)
       runAfter:
         - package
       taskRef:
