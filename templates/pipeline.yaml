@@ -8,6 +8,9 @@ spec:
     - default: demo
       name: APP_NAME
       type: string
+    - default: src/main/docker/Dockerfile
+      name: DOCKERFILE
+      type: string
     - default: 'https://github.com/frarodroc/demo'
       name: GIT_REPO
       type: string
@@ -40,7 +43,19 @@ spec:
         - fetch-repository
       taskRef:
         kind: ClusterTask
-        name: quarkus-package
+        name: mvnw-package
+      workspaces:
+        - name: source
+          workspace: workspace
+    - name: buildah
+      params:
+        - name: DOCKERFILE
+          value: $(params.DOCKERFILE)
+      runAfter:
+        - package
+      taskRef:
+        kind: ClusterTask
+        name: buildah
       workspaces:
         - name: source
           workspace: workspace
