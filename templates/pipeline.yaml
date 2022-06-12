@@ -43,7 +43,7 @@ spec:
         - fetch-repository
       taskRef:
         kind: ClusterTask
-        name: mvnw-package
+        name: spring-boot-repackage
       workspaces:
         - name: source
           workspace: workspace
