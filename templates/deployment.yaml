@@ -1,6 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations:
+    image.openshift.io/triggers: >-
+  	[{"from":{"kind":"ImageStreamTag","name":"{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}","namespace":"demo"},"fieldPath":"spec.template.spec.containers[?(@.name==\"demo\")].image","pause":"false"}]
   name: {{ include "demo-helm.fullname" . }}
   labels:
     {{- include "demo-helm.labels" . | nindent 4 }}
