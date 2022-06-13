@@ -35,7 +35,10 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: PASSWORD
-              value: zzz
+              valueFrom:
+                secretKeyRef:
+                  name: password
+                  key: PASSWORD
           ports:
             - name: http
               containerPort: 8080
