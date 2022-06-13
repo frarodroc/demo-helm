@@ -17,7 +17,7 @@ spec:
     - default: master
       name: GIT_REVISION
       type: string
-    - default: image-registry.openshift-image-registry.svc:5000/demo/demo
+    - default: 'image-registry.openshift-image-registry.svc:5000/demo/demo'
       name: IMAGE_NAME
       type: string
     - default: /
@@ -38,7 +38,7 @@ spec:
       workspaces:
         - name: output
           workspace: workspace
-    - name: package
+    - name: spring-boot-repackage
       runAfter:
         - fetch-repository
       taskRef:
@@ -54,7 +54,7 @@ spec:
         - name: IMAGE
           value: $(params.IMAGE_NAME)
       runAfter:
-        - package
+        - spring-boot-repackage
       taskRef:
         kind: ClusterTask
         name: buildah
@@ -63,4 +63,3 @@ spec:
           workspace: workspace
   workspaces:
     - name: workspace
-
