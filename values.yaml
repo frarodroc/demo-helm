@@ -60,6 +60,8 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+propertiesPath: /home/jboss/config
+
 secrets:    
   PASSWORD: ZGVtbw==
   TOKEN: bWl0b2tlbg==
