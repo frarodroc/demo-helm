@@ -4,4 +4,4 @@ metadata:
   name: {{ include "demo-helm.fullname" . }}
 data:
   application.properties: |
-{{ .Files.Get "application.properties" | indent 4 }}
+    {{ .Files.Get "application.properties" | indent 4 }}
