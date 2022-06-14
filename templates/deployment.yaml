@@ -40,7 +40,7 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "demo-helm.fullname" . }}
-          olumeMounts:
+          volumeMounts:
             - name: properties
               mountPath: {{ .Values.propertiesPath }}
           ports:
