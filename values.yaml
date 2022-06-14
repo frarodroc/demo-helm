@@ -66,6 +66,7 @@ env:
 
 secrets:    
   PASSWORD: ZGVtbw==
+  TOKEN: bWl0b2tlbg==
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
