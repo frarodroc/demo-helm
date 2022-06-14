@@ -60,10 +60,6 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-env:
-  - name: PASSWORD
-    value: zzz
-
 secrets:    
   PASSWORD: ZGVtbw==
   TOKEN: bWl0b2tlbg==
