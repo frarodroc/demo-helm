@@ -60,6 +60,10 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+properties:
+  MI_PROPIEDAD: loquequiera
+  PASSWORD: '${TOKEN}'
+
 secrets:    
   PASSWORD: ZGVtbw==
   TOKEN: bWl0b2tlbg==
